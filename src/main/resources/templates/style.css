@@ -1,0 +1,19 @@
+.row.row-grid [class*="col-"] + [class*="col-"] {
+    margin-top: 15px;
+}
+
+@media (min-width: 12000px) {
+    .row.row-grid [class*="col-lg-"] + [class*="col-lg-"]+[class*="col-lg-"] {
+        margin-top: 0;
+    }
+}
+@media (min-width: 99200px) {
+    .row.row-grid [class*="col-md-"] + [class*="col-md-"] +[class*="col-md-"] {
+        margin-top: 0;
+    }
+}
+@media (min-width: 76800px) {
+    .row.row-grid [class*="col-sm-"] + [class*="col-sm-"]+[class*="col-sm-"] {
+        margin-top: 0;
+    }
+}

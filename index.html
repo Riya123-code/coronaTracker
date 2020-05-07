@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>CORONAVIRUS TRACKER APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <!-- <link href="style.css" rel="stylesheet" type="text/css" />-->
+
+
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+<div class="container">
+    <span class="d-block p-2 bg-primary text-white"><h1>CORONAVIRUS TRACKER APPLICATION</h1>
+</span>
+    <span class="d-block p-2 bg-dark text-white"><p>This application list the current number of corona virus cases reported across the globe</p>
+</span>
+
+
+
+    <div class="jumbotron">
+       <p class="text-center"> <h1 class="display-4" th:text="${totalreportedcases}"></h1>
+        <p><h>Total cases reported as of today..</h></p>
+        <hr class="my-4">
+        <a class="display-4" th:text="${totalnewcases}"></a>
+        <p>Total new cases reported .</p>    </div>
+    <span class="d-block p-2 bg-primary text-white">
+        <p >   <div class="form-group row"><label  class="col-sm-2 col-form-label"><h class="font-weight-bold">SEARCH</h></label>
+        <div class="col-sm-10">  <input type="text" class="form-control" id="search" onkeyup="myFunction()" placeholder="country.."></div></div></p></span>
+
+
+
+
+<table class="table table-dark" id="t_table">
+    <tr>
+        <span class="d-block p-2 bg-primary text-white"> <th >STATE</th></span>
+
+        <span class="d-block p-2 bg-primary text-white"> <th >COUNTRY</th></span>
+        <span class="d-block p-2 bg-primary text-white">  <th>TOTAL CASES REPORTED</th></span>
+        <th></th>
+            <th>CHANGES SINCE LAST DAY</th>
+
+    </tr>
+    <tr th:each="Locationstate : ${locationstates}">
+        <td th:text="${Locationstate.state}"></td>
+
+        <td th:text="${Locationstate.country}"></td>
+        <td th:text="${Locationstate.latestTotalCases}">0</td>
+        <td></td>
+        <td th:text="${Locationstate.Difffromprevday}">0</td>
+
+    </tr>
+</table>-->
+</div>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("t_table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+</body>
+
+</html>
