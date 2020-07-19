@@ -28,7 +28,7 @@ model.addAttribute( "totalreportedcases" , totalcases);
         model.addAttribute( "totalnewcases" , totalnewcases);
 
 
-        return"home";
+        return"index";
     }
 
 
